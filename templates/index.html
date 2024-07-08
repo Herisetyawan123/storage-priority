@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prediction With SVM</title>
+    <title>Prediction With Logistic Regresion</title>
 
     <link
       rel="stylesheet"
@@ -37,18 +37,30 @@
         </a>
       </div>
       <div class="row">
-        <div class="img-holder">
+        <div class="img-holder left-top">
           <div class="bg"></div>
+          <div class="info-holder simple-info">
+            <div class="mb-5">
+              <div class="type-animation">
+                <h2 class="mb-2 animated">LogisticRegresion</h2>
+              </div>
+              <h3 class="mb-4">
+                <i class="font-weight-light"
+                  >Let's to Predict with our platform</i
+                >
+              </h3>
+            </div>
+          </div>
           <div class="bottom-view">
             <p>
-              <small class="font-weight-light">Powered by domains - 2023</small>
+              <small class="font-weight-light">Powered - 2024</small>
             </p>
           </div>
         </div>
         <div class="form-holder">
           <div class="form-content">
             <div class="form-items">
-              <h3>Prediction With SVM</h3>
+              <h3>Prediction With LogisticRegresion</h3>
               <p class="text-black">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Explicabo qui atque distinctio error ducimus aperiam ratione?
@@ -131,25 +143,12 @@
         <div class="info-holder simple-info">
           <div class="mb-5">
             <div class="type-animation">
-              <h2 class="mb-2 animated">iofrmlabs.com</h2>
+              <h2 class="mb-2 animated" id="result-predict"></h2>
             </div>
             <h3 class="mb-4">
-              <i class="font-weight-light">Domain for sale!</i>
+              <i class="font-weight-light">Predict With LogisticRegresion</i>
             </h3>
           </div>
-          <div>
-            <p>
-              Fill the form, make your offer<br />And get the domain name before
-              it’s gone.
-            </p>
-          </div>
-        </div>
-        <div class="bottom-view">
-          <p>
-            <small class="font-weight-light"
-              >Powered by iofrm domains - 2023</small
-            >
-          </p>
         </div>
       </div>
     </div>
@@ -171,13 +170,22 @@
             data: formData,
             success: function (response) {
               console.log(response);
+              $("#result-predict").text(response.predict);
               $("#hiddenDiv").show();
+              $("html, body").animate(
+                { scrollTop: $(document).height() },
+                "slow"
+              );
             },
             error: function (error) {
-              console.log(error);
+              $("#result-predict").text("Terjadi Kesalahan");
+              $("#hiddenDiv").show();
+              $("html, body").animate(
+                { scrollTop: $(document).height() },
+                "slow"
+              );
             },
           });
-          $("#hiddenDiv").show();
         });
       });
     </script>

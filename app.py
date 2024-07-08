@@ -26,15 +26,12 @@ def predictions():
     total_stock = float(request.form['total_stock'])
     last_movement = float(request.form['last_movement'])
     
-    # Lakukan prediksi menggunakan model (contoh dummy)
-    print([storage_bin, storage_location, gr_date, total_stock, last_movement])
     input_data = np.array([[storage_bin, storage_location, gr_date, total_stock, last_movement]])
 
     predict = model.predict(input_data)
-    print(gr_date)
-    
+
     # Kembalikan hasil prediksi sebagai respons JSON
-    return jsonify({'predict': predict.tolist()})
+    return jsonify({'predict': predict.tolist()[0]})
 
 if __name__ == '__main__':
     app.run(debug=True)
