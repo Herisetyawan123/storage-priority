@@ -1,6 +1,10 @@
 from flask import Flask, render_template
+import joblib
 
 app = Flask(__name__)
+
+# Muat model
+model = joblib.load('model/svm.pkl')
 
 @app.route('/')
 def home():
