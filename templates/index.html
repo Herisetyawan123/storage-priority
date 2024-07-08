@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediction With SVM</title>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/fontawesome-all.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/iofrm-style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/iofrm-theme31.css') }}"
+    />
+  </head>
+  <body>
+    <div class="form-body on-top-mobile">
+      <div class="website-logo">
+        <a href="index.html">
+          <div class="logo">
+            <img class="logo-size" src="images/logo-light.svg" alt="" />
+          </div>
+        </a>
+      </div>
+      <div class="row">
+        <div class="img-holder">
+          <div class="bg"></div>
+          <div class="bottom-view">
+            <p>
+              <small class="font-weight-light">Powered by domains - 2023</small>
+            </p>
+          </div>
+        </div>
+        <div class="form-holder">
+          <div class="form-content">
+            <div class="form-items">
+              <h3>Prediction With SVM</h3>
+              <p class="text-black">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Explicabo qui atque distinctio error ducimus aperiam ratione?
+                Exercitationem consequatur vitae amet voluptas.
+              </p>
+              <form class="container-custom-padding">
+                <div class="row">
+                  <div class="col-12 col-sm-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Material Desctiption"
+                    />
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Storage Location"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-sm-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="E-mail Address"
+                    />
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Phone Number"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-sm-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Country"
+                    />
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Website, other links"
+                    />
+                  </div>
+                </div>
+                <div class="row top-padding">
+                  <div class="col-12 col-sm-12">
+                    <div class="form-button text-right">
+                      <button
+                        id="submit"
+                        type="submit"
+                        class="ibtn less-padding"
+                      >
+                        Predict
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="img-holder" id="hiddenDiv" style="display: none">
+        <div class="bg"></div>
+        <div class="info-holder simple-info">
+          <div class="mb-5">
+            <div class="type-animation">
+              <h2 class="mb-2 animated">iofrmlabs.com</h2>
+            </div>
+            <h3 class="mb-4">
+              <i class="font-weight-light">Domain for sale!</i>
+            </h3>
+          </div>
+          <div>
+            <p>
+              Fill the form, make your offer<br />And get the domain name before
+              it’s gone.
+            </p>
+          </div>
+        </div>
+        <div class="bottom-view">
+          <p>
+            <small class="font-weight-light"
+              >Powered by iofrm domains - 2023</small
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.min.js') }}"></script>
+    <script>
+      $(document).ready(function () {
+        $("#submit").click(function (event) {
+          event.preventDefault(); // Mencegah form untuk melakukan submit
+          $("#hiddenDiv").show(); // Menampilkan div dengan ID hiddenDiv
+        });
+      });
+    </script>
+  </body>
+</html>
