@@ -43,7 +43,7 @@ def predictions():
     last_movement = (pd.to_datetime(last_movement_str) - pd.to_datetime('1899-12-30')).days
     
     input_data = np.array([[storage_bin, storage_location, gr_date, total_stock, last_movement]])
-
+ 
     predict = model.predict(input_data)
 
     # Kembalikan hasil prediksi sebagai respons JSON
