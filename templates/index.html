@@ -54,52 +54,57 @@
                 Explicabo qui atque distinctio error ducimus aperiam ratione?
                 Exercitationem consequatur vitae amet voluptas.
               </p>
-              <form class="container-custom-padding">
+              <form
+                id="form-predict"
+                action="/predictions"
+                method="post"
+                class="container-custom-padding"
+              >
                 <div class="row">
                   <div class="col-12 col-sm-6">
                     <input
-                      type="text"
+                      type="number"
+                      name="storage_bin"
                       class="form-control"
-                      placeholder="Material Desctiption"
+                      placeholder="Storage Bin"
                     />
                   </div>
                   <div class="col-12 col-sm-6">
-                    <input
-                      type="text"
+                    <select
                       class="form-control"
+                      name="storage_location"
                       placeholder="Storage Location"
+                    >
+                      <option value="0">I001</option>
+                      <option value="1">ZBLK</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-sm-6">
+                    <input
+                      type="date"
+                      name="gr_date"
+                      class="form-control"
+                      placeholder="GR Date"
+                    />
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <input
+                      type="number"
+                      name="total_stock"
+                      class="form-control"
+                      placeholder="Total Stock"
                     />
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-12 col-sm-6">
                     <input
-                      type="text"
+                      type="number"
+                      name="last_movement"
                       class="form-control"
-                      placeholder="E-mail Address"
-                    />
-                  </div>
-                  <div class="col-12 col-sm-6">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Phone Number"
-                    />
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12 col-sm-6">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Country"
-                    />
-                  </div>
-                  <div class="col-12 col-sm-6">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Website, other links"
+                      placeholder="Last Movement"
                     />
                   </div>
                 </div>
@@ -154,9 +159,25 @@
     <script src="{{ url_for('static', filename='js/main.min.js') }}"></script>
     <script>
       $(document).ready(function () {
-        $("#submit").click(function (event) {
-          event.preventDefault(); // Mencegah form untuk melakukan submit
-          $("#hiddenDiv").show(); // Menampilkan div dengan ID hiddenDiv
+        $("#form-predict").submit(function (event) {
+          event.preventDefault();
+          // Ambil data dari form
+          var formData = $(this).serialize();
+
+          // Kirim request AJAX ke Flask
+          $.ajax({
+            type: "POST",
+            url: "/predictions", // Ganti dengan endpoint Flask Anda
+            data: formData,
+            success: function (response) {
+              console.log(response);
+              $("#hiddenDiv").show();
+            },
+            error: function (error) {
+              console.log(error);
+            },
+          });
+          $("#hiddenDiv").show();
         });
       });
     </script>
